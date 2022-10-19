@@ -66,7 +66,7 @@ contract auction{
         require(currentBidder > highestPayableBid, "Less than highestpayable");
 
         bids[msg.sender] = currentBidder;
-        if(currentBidder < bids[highestBidder]){
+        if(currentBidder > bids[highestBidder]){
             highestPayableBid = min(currentBidder, bids[highestBidder]+bidIncrement);
             highestBidder = payable(msg.sender);
         }
